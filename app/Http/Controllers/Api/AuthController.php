@@ -63,4 +63,18 @@ class AuthController extends Controller
     {
         return response()->json(Auth::user());
     }
+
+    public function index(): JsonResponse
+    {
+        return response()->json(Auth::user());
+    }
+
+
+    public function show(int $id): JsonResponse
+    {
+        $user = User::findOrFail($id);
+
+        return response()->json(['data' => $user]);
+
+    }
 }
